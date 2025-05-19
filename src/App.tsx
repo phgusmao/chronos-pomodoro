@@ -10,27 +10,11 @@ import { Footer } from './components/Footer'
 
 import './styles/global.css'
 import './styles/theme.css'
-import { Heading } from './components/Heading'
-import { useState } from 'react'
 
 export function App() {
 
-  //const [numero, setNumero] = useState(() => {
-  //  return 0;
-  //});
-
-  const [numero, setNumero] = useState(0)
-
-  function handleClick() {
-    //setNumero((prevState) => prevState + 1)
-    setNumero(1);
-  }
-
   return (
     <>
-      <Heading>Número: {numero}</Heading>
-      <button onClick={handleClick}>Aumenta</button>
-
       <Container>
         <Logo></Logo>
       </Container>
@@ -44,7 +28,7 @@ export function App() {
         <form className='form' action="">
           <div className="formRow">
             <DefaultInput
-              labelText={numero.toString()}
+              labelText='Task'
               id='meuInput'
               type='text'
               placeholder='Digite aqui...'
