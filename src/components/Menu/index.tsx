@@ -8,33 +8,17 @@ export function Menu() {
   const [theme, setTheme] = useState<AvailableThemes>('dark')
 
   function handleThemeChange(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    event.preventDefault(); //Não segue o link
+    event.preventDefault();
 
     setTheme(prevTheme => {
       const nextTheme = prevTheme === 'dark' ? 'light' : 'dark';
       return nextTheme;
     })
-
-
-    //document.documentElement.setAttribute('data-theme', theme)
   }
 
-  // useEffect(() => {
-  //   console.log('', Date.now())
-  // }) // Executado todas as vezes que o componente redenriza na tela;
-
-  // useEffect(() => {
-  //   console.log('useEffect c array dps vazio', Date.now())
-  // }, []) //executa apenas quando o react monta o componente na tela pela primeira vez;
-
   useEffect(() => {
-    // console.log('Theme mudou', theme)
     document.documentElement.setAttribute('data-theme', theme);
-
-    return () => {
-      console.log('Este componente será atualizado;')
-    }
-  }, [theme]); //array de dependência
+  }, [theme]);
 
   return (
     <>
