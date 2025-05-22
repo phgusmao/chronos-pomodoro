@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 type AvailableThemes = 'dark' | 'light'
 
 export function Menu() {
+
+  //inicialização preguiçosa do useState
   const [theme, setTheme] = useState<AvailableThemes>(() => {
     const storageTheme = (localStorage.getItem('theme') as AvailableThemes) || 'dark';
     return storageTheme;
@@ -25,13 +27,14 @@ export function Menu() {
   }
 
   useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
     <>
       <nav className={styles.menu}>
-        <a className={styles.menuLink} onClick={handleThemeChange} href='#' aria-label='Ir para Home' title='Ir para Home'>
+        <a className={styles.menuLink} href='#' aria-label='Ir para Home' title='Ir para Home'>
           <HouseIcon />
         </a>
         <a href="#" className={styles.menuLink} aria-label='Ver histórico' title='Ver histórico'>
