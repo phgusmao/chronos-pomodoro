@@ -34,6 +34,8 @@ export function App() {
 
   const [state, setState] = useState(initialState);
 
+  console.log('APP', state)
+
   return (
     <Home state={state} setState={setState} />
   )

@@ -10,10 +10,29 @@ type HomeProps = {
 }
 
 export function Home(props: HomeProps) {
-  console.log(props)
+  const { state, setState } = props;
+
+  // function handleClick() {
+  //   setState(prevState => {
+  //     prevState.currentCycle = 8
+  //     return prevState;
+  //   })
+  // }
+
+  function handleClick() {
+    setState(prevState => {
+      return {
+        ...prevState,
+        currentCycle: 5
+      }
+    })
+  }
 
   return (
     <MainTemplate>
+      <Container>
+        <button onClick={handleClick}>Clicar</button>
+      </Container>
       <Container>
         <CountDown />
       </Container>
