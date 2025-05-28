@@ -1,14 +1,13 @@
+import { HomeProps } from '../../pages/Home'
 import styles from './styles.module.css'
 
-//USANDO DESTRUCTURING PARA ENCURTAR CÓDIGO
-
-export function CountDown() {
+export function CountDown({ state }: HomeProps) {
 
   return (
     <>
       {/*<h1 className={classes}>Olá mundo</h1>*/}
       <div className={styles.container}>
-        00:00
+        {state.formattedSecondsRemaining}
       </div>
     </>
   )
