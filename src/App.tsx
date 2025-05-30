@@ -3,19 +3,7 @@ import { Home } from './pages/Home'
 import './styles/global.css'
 import './styles/theme.css'
 import { TaskStateModel } from './models/TaskStateModel'
-
-// export type TaskStateModel = {
-//   tasks: TaskModel[]; //histórico, MainForm
-//   secondsRemaining: number; // Home, CountDown, histórico, MainForm, Button
-//   formattedSecondsRemaining: string; //Titulo, CountDown 
-//   activeTask: TaskModel | null;//CountDown, histórico, MainForm, Button
-//   currentCycle: number; // 1 a 8 Home
-//   config: {
-//     workTime: number; // MainForm
-//     shortBreakTime: number; //MainForm
-//     longBreakTime: number; //MainForm
-//   }
-// }
+import { TaskContext } from './contexts/TaskContext'
 
 const initialState: TaskStateModel = {
   tasks: [],
@@ -35,6 +23,8 @@ export function App() {
   const [state, setState] = useState(initialState);
 
   return (
-    <Home />
+    <TaskContext.Provider value={{ outraCoisa: 321 }}>
+      <Home />
+    </TaskContext.Provider>
   )
 }
